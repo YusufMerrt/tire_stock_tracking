@@ -1,8 +1,8 @@
 <?php
-$servername = "95.130.171.20";
-$username = "st21360859057"; // XAMPP varsayılan kullanıcı adı
-$password = "st21360859057"; // XAMPP varsayılan şifre boş
-$dbname = "dbstorage21360859057";
+$servername = "localhost";
+$username = "root"; // XAMPP varsayılan kullanıcı adı
+$password = ""; // XAMPP varsayılan şifre boş
+$dbname = "deneme61";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
