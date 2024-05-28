@@ -1,9 +1,9 @@
 <?php
 // Veritabanı bağlantısı için gerekli bilgileri buraya ekleyin
-$servername = "95.130.171.20";
-                $username = "st21360859057"; // XAMPP varsayılan kullanıcı adı
-                $password = "st21360859057"; // XAMPP varsayılan şifre boş
-                $dbname = "dbstorage21360859057";
+$servername = "localhost";
+$username = "root"; // XAMPP varsayılan kullanıcı adı
+$password = ""; // XAMPP varsayılan şifre boş
+$dbname = "deneme61";
 
 // Formdan gelen verileri alın
 $user = $_POST['username'];
