@@ -30,5 +30,8 @@ Uygulamanın Kullanımı:
 Kullanıcıların lastikleri eklemesine, çıkarmasına ve mevcut adetlerini değiştirmesine izin veren bir arayüz oluşturun.
 Bu arayüz, kullanıcıların veritabanındaki lastikleri etkileşimli olarak yönetmelerini sağlamalıdır.
 
+
+
+Sitenin kullanım videosu:
 https://www.youtube.com/watch?v=VR8oDTTEsIg
 
