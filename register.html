@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt ve Giriş</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('duvar.jpg') no-repeat center center fixed; 
+            background-size: cover;
+        }
+        .register-container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            color: white;
+        }
+        .register-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .register-container img.tiryakiler-logo {
+            width: 200px;
+        }
+        .btn-custom {
+            background-color: #f39c12;
+            color: white;
+        }
+        .alert {
+            display: none;
+            margin-top: 20px;
+        }
+        .btn-custom-login{
+            background-color: #23e22d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="register-container">
+                    <img class="tiryakiler-logo" src="tiryakiler-logo.png" alt="Tiryakiler Otomotiv">
+                   
+                    <form id="userForm" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Kullanıcı Adı" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Şifre" required>
+                        </div>
+                        <button type="button" id="registerButton" class="btn btn-custom btn-block">Kayıt Ol</button>
+                        <button type="button" id="loginButton" class="btn btn-custom-login btn-block">Giriş Yap</button>
+                    </form>
+                    <div id="alertSuccess" class="alert alert-success" role="alert">
+                        İşlem başarıyla gerçekleştirildi.
+                    </div>
+                    <div id="alertError" class="alert alert-danger" role="alert">
+                        Hata: Böyle bir kullanıcı adı zaten var veya böyle bir kayıt yoktur.
+                    </div>
+                    <br>
+                    <a href="https://github.com/YusufMerrt/tire_stock_tracking">
+                        <img src="git.png" width="50px">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('registerButton').onclick = function() {
+            var formData = new FormData(document.getElementById('userForm'));
+            formData.append('action', 'register');
+
+            fetch('submit.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'exists') {
+                    document.getElementById('alertError').innerText = 'Böyle bir kullanıcı adı zaten var.';
+                    document.getElementById('alertError').style.display = 'block';
+                    document.getElementById('alertSuccess').style.display = 'none';
+                } else if (data === 'success') {
+                    document.getElementById('alertSuccess').innerText = 'Yeni kayıt başarıyla eklendi.';
+                    document.getElementById('alertSuccess').style.display = 'block';
+                    document.getElementById('alertError').style.display = 'none';
+                } else {
+                    alert(data); // Diğer hata mesajlarını göster
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        };
+
+        document.getElementById('loginButton').onclick = function() {
+            var formData = new FormData(document.getElementById('userForm'));
+            formData.append('action', 'login');
+
+            fetch('submit.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'not_found') {
+                    document.getElementById('alertError').innerText = 'Böyle bir kayıt yoktur.';
+                    document.getElementById('alertError').style.display = 'block';
+                    document.getElementById('alertSuccess').style.display = 'none';
+                } else if (data === 'login_success') {
+                    window.location.href = 'success.php'; // Başarılı girişten sonra yönlendirme
+                } else {
+                    alert(data); // Diğer hata mesajlarını göster
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        };
+    </script>
+</body>
+</html>
+
