@@ -26,9 +26,7 @@ SQL kodunu yapıştırın veya dosyadan yükleyin.
 Sonra "Çalıştır" düğmesine tıklayarak SQL kodunu çalıştırın.
 Uygulamanın Kullanımı:
 
-Şimdi veritabanı hazır. Lastik stok sitesini kullanıcı girişi ile etkileşimli hale getirmek için bir uygulama geliştirebilirsiniz.
-Kullanıcıların lastikleri eklemesine, çıkarmasına ve mevcut adetlerini değiştirmesine izin veren bir arayüz oluşturun.
-Bu arayüz, kullanıcıların veritabanındaki lastikleri etkileşimli olarak yönetmelerini sağlamalıdır.
+Şimdi veritabanı hazır. register.html doyasına tılayarak siteyi deneyimleyebilirsiniz.
 
 
 
