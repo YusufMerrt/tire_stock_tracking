@@ -27,6 +27,8 @@ Sonra "Çalıştır" düğmesine tıklayarak SQL kodunu çalıştırın.
 Uygulamanın Kullanımı:
 
 Şimdi veritabanı hazır. register.html doyasına tılayarak siteyi deneyimleyebilirsiniz.
+![image](https://github.com/YusufMerrt/tire_stock_tracking/assets/93128596/ebfe99cd-5aaa-4e8a-8ccd-faed39666dae)
+
 
 
 
